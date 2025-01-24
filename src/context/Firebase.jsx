@@ -45,7 +45,7 @@ export const FirebaseProvider = ({ children }) => {
       } else {
         setUser(null);
         localStorage.removeItem("loggedInUser");
-        const protectedPaths = ['/home'];
+        const protectedPaths = ['/'];
         if (protectedPaths.includes(location.pathname)) {
           navigate("/");
         }

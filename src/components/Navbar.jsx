@@ -1,12 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import HomePage from "./HomePage";
-import EcoDashboard from "./EcoDashboard";
-import ContactUs from "./ContactUs";
-import EcoFriendlyCommunityForum from "./CommunityForum";
-import MarketPlace from "./MarketPlace";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // Initialize the navigation hook
+  const navigate = useNavigate(); // Navigation hook for the Login button
 
   const handleLoginClick = () => {
     navigate("/login"); // Navigate to the /login route
@@ -15,20 +10,40 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-4 fixed top-0 w-full z-10 bg-black">
       {/* Branding */}
-      <div className="text-white text-xl font family-Monograph">
+      <div className="text-white text-xl font-family-Monograph">
         Eco-Connect
       </div>
 
-      {/* Links - Centered */}
+      {/* Links */}
       <div className="flex gap-6 mx-auto">
-        <a href={<HomePage/>}><button className="text-white text-base hover:text-gray-300">Home</button></a>
-        <a href={<EcoDashboard/>}><button className="text-white text-base hover:text-gray-300">Dashboard</button></a>
-        <a href={<ContactUs/>}><button className="text-white text-base hover:text-gray-300">Contact</button></a>
-        <a href={<EcoFriendlyCommunityForum/>}><button className="text-white text-base hover:text-gray-300">Community</button></a>
-        <a href={<MarketPlace/>}><button className="text-white text-base hover:text-gray-300">Market Place</button></a>
+        <Link to="/home">
+          <button className="text-white text-base hover:text-gray-300">
+            Home
+          </button>
+        </Link>
+        <Link to="/dashboard">
+          <button className="text-white text-base hover:text-gray-300">
+            Dashboard
+          </button>
+        </Link>
+        <Link to="/contact">
+          <button className="text-white text-base hover:text-gray-300">
+            Contact
+          </button>
+        </Link>
+        <Link to="/community">
+          <button className="text-white text-base hover:text-gray-300">
+            Community
+          </button>
+        </Link>
+        <Link to="/marketplace">
+          <button className="text-white text-base hover:text-gray-300">
+            Market Place
+          </button>
+        </Link>
       </div>
 
-      {/* Login Button - Right */}
+      {/* Login Button */}
       <div>
         <button
           onClick={handleLoginClick}
