@@ -1,6 +1,6 @@
 // import React from 'react';
 // import { useNavigate } from 'react-router-dom';
-// import FloatingChatBubble from './FloatingChatBubble';
+import FloatingChatBubble from './FloatingChatBubble';
 
 // const LandingPage = () => {
 //   const navigate = useNavigate();
@@ -239,7 +239,7 @@ const LandingPage = () => {
               </a>
             </div>
           </div>
-
+          <FloatingChatBubble />
           {/* Copyright Section */}
           <div className="mt-8 text-center text-lg">
             <p>© {new Date().getFullYear()} Sustainability. All rights reserved.</p>
