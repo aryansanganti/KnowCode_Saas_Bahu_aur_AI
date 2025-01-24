@@ -42,6 +42,7 @@ function ReducePage() {
         {filteredTips.map((tip, index) => (
           <motion.div
             key={index}
+            
             className="p-6 bg-white border rounded-lg shadow-lg"
             whileHover={{ scale: 1.05, rotate: -1 }} // Hover animation
             whileTap={{ scale: 0.95 }}

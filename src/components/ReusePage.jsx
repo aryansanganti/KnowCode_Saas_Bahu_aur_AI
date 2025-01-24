@@ -1,57 +1,61 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // Framer Motion for animations
 
-const reduceTips = [
-  { title: "Minimal Packaging", text: "Choose products with little to no packaging to reduce waste." },
-  { title: "Avoid Single-Use Plastics", text: "Carry reusable bottles, straws, and cutlery wherever you go." },
-  { title: "Energy Efficiency", text: "Switch to energy-efficient appliances to conserve power." },
-  { title: "Composting", text: "Compost kitchen waste to reduce organic waste in landfills." },
-  { title: "Digital Receipts", text: "Opt for digital receipts and documents to save paper." },
-  { title: "Reusable Bags", text: "Use cloth bags instead of plastic for shopping." },
-  { title: "Public Transport", text: "Use public transport or carpool to save fuel." },
-  { title: "Secondhand Goods", text: "Purchase used items to reduce production waste." },
+const reuseIdeas = [
+  { title: "Plant Holder", text: "Cut the bottle in half and use it as a pot for plants." },
+  { title: "Bird Feeder", text: "Fill a bottle with seeds and hang it in your garden." },
+  { title: "DIY Lamp", text: "Turn it into a creative lamp by adding LED lights inside." },
+  { title: "Origami", text: "Fold paper into creative shapes for decorations or gifts." },
+  { title: "Handmade Cards", text: "Create personalized cards for special occasions." },
+  { title: "Gift Wrap", text: "Use old paper for eco-friendly gift wrapping." },
+  { title: "Upcycled Bags", text: "Convert old clothes into reusable shopping bags." },
+  { title: "Cleaning Rags", text: "Cut them into smaller pieces for cleaning purposes." },
+  { title: "DIY Quilts", text: "Patch old clothes together to make a cozy quilt." },
+  { title: "Mason Jar Storage", text: "Reuse jars to store spices, grains, or other items." },
+  { title: "DIY Pencil Holders", text: "Turn empty cans or bottles into creative pencil holders." },
+  { title: "Eco-Friendly Toys", text: "Create toys for kids using leftover household items." },
 ];
 
-function ReducePage() {
+function ReusePage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Filter tips based on search query
-  const filteredTips = reduceTips.filter(
-    (tip) =>
-      tip.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tip.text.toLowerCase().includes(searchQuery.toLowerCase())
+  // Filter ideas based on search query
+  const filteredIdeas = reuseIdeas.filter(
+    (idea) =>
+      idea.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      idea.text.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="p-8">
-      <h2 className="text-3xl font-bold text-blue-600 mb-6">Reduce Waste</h2>
+      <h2 className="text-3xl font-bold text-green-600 mb-6">Reuse Ideas</h2>
 
       {/* Search Bar */}
       <div className="mb-6">
         <input
           type="text"
-          placeholder="Search reduce tips..."
-          className="border p-3 rounded-lg w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          placeholder="Search reuse ideas..."
+          className="border p-3 rounded-lg w-full shadow-md focus:outline-none focus:ring-2 focus:ring-green-400"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
-      {/* Display Filtered Tips */}
+      {/* Display Filtered Ideas */}
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filteredTips.map((tip, index) => (
+        {filteredIdeas.map((idea, index) => (
           <motion.div
             key={index}
             className="p-6 bg-white border rounded-lg shadow-lg"
-            whileHover={{ scale: 1.05, rotate: -1 }} // Hover animation
+            whileHover={{ scale: 1.05, rotate: 1 }} // Hover animation
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <h3 className="font-bold text-xl mb-2 text-blue-700">{tip.title}</h3>
-            <p className="text-gray-700">{tip.text}</p>
+            <h3 className="font-bold text-xl mb-2 text-green-700">{idea.title}</h3>
+            <p className="text-gray-700">{idea.text}</p>
           </motion.div>
         ))}
-        {filteredTips.length === 0 && (
+        {filteredIdeas.length === 0 && (
           <p className="text-gray-500 text-center">No results found. Try a different search term!</p>
         )}
       </div>
@@ -59,4 +63,4 @@ function ReducePage() {
   );
 }
 
-export default ReducePage;
+export default ReusePage;
