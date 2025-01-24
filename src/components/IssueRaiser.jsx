@@ -1,11 +1,20 @@
-import React from "react";
-import { useFirebase } from "../context/Firebase";
+import  { useEffect, useState } from "react";
 import { FaPlus, FaListAlt } from "react-icons/fa";
 
+// Utility function for safe JSON parsing
+const safeParse = (key, fallback = null) => {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : fallback;
+  } catch (error) {
+    console.error(`Error parsing localStorage key "${key}":`, error);
+    return fallback;
+  }
+};
+
 const IssueRaiser = () => {
-  const { user } = useFirebase();
-  const username = user?.displayName || user?.email;
-  const [issue, setIssue] = React.useState({
+  const username = "TestUser"; // Replace with actual username logic (e.g., Firebase user context)
+  const [issue, setIssue] = useState({
     photo: "",
     text: "",
     location: "",
@@ -14,11 +23,17 @@ const IssueRaiser = () => {
     status: "Open",
     raisedBy: username,
   });
-  const [myIssues, setMyIssues] = React.useState([]);
+  const [myIssues, setMyIssues] = useState([]);
+  const [wallets, setWallets] = useState({});
 
-  React.useEffect(() => {
-    const userIssues = JSON.parse(localStorage.getItem(username)) || [];
+  useEffect(() => {
+    // Fetch user's issues from localStorage
+    const userIssues = safeParse(username, []);
     setMyIssues(userIssues);
+
+    // Fetch wallets from localStorage
+    const storedWallets = safeParse("wallets", {});
+    setWallets(storedWallets);
   }, [username]);
 
   const handleChange = (e) => {
@@ -36,20 +51,33 @@ const IssueRaiser = () => {
   };
 
   const handleSubmit = () => {
-    console.log("handlesubmit function");
-    const userIssues = JSON.parse(localStorage.getItem(username)) || [];
-    userIssues.push(issue);
-    localStorage.setItem(username, JSON.stringify(userIssues));
-    setMyIssues(userIssues);
-    alert("Issue raised successfully!");
-    setIssue({ 
-      photo: "", 
-      text: "", 
-      location: "", 
-      description: "", 
-      peopleRequired: 1, 
-      status: "Open", 
-      raisedBy: username 
+    if (!issue.text || !issue.location || !issue.description) {
+      alert("Please fill in all the fields.");
+      return;
+    }
+
+    // Save the issue to localStorage
+    const userIssues = safeParse(username, []);
+    const updatedIssues = [...userIssues, issue];
+    localStorage.setItem(username, JSON.stringify(updatedIssues));
+    setMyIssues(updatedIssues);
+
+    // Update wallet points (5 points for raising an issue)
+    const updatedWallets = { ...wallets, [username]: (wallets[username] || 0) + 5 };
+    localStorage.setItem("wallets", JSON.stringify(updatedWallets));
+    setWallets(updatedWallets);
+
+    alert("Issue raised successfully, and 5 points have been added to your wallet!");
+
+    // Reset the issue form
+    setIssue({
+      photo: "",
+      text: "",
+      location: "",
+      description: "",
+      peopleRequired: 1,
+      status: "Open",
+      raisedBy: username,
     });
   };
 
@@ -71,10 +99,10 @@ const IssueRaiser = () => {
                 className="w-full border-2 border-[#3CB371] rounded-lg p-3 text-[#333333] file:mr-4 file:rounded-lg file:border-0 file:bg-[#3CB371] file:text-white hover:file:bg-[#2E8B57]"
               />
               {issue.photo && (
-                <img 
-                  src={issue.photo} 
-                  alt="Preview" 
-                  className="w-full h-48 object-cover rounded-lg" 
+                <img
+                  src={issue.photo}
+                  alt="Preview"
+                  className="w-full h-48 object-cover rounded-lg"
                 />
               )}
               <input
@@ -131,14 +159,18 @@ const IssueRaiser = () => {
                   </thead>
                   <tbody>
                     {myIssues.map((issue, index) => (
-                      <tr 
-                        key={index} 
+                      <tr
+                        key={index}
                         className="border-b last:border-b-0 hover:bg-[#D3D3D3]/30"
                       >
                         <td className="p-3 text-[#333333]">{issue.text}</td>
-                        <td className={`p-3 font-semibold ${
-                          issue.status === 'Resolved' ? 'text-[#3CB371]' : 'text-[#FFD700]'
-                        }`}>
+                        <td
+                          className={`p-3 font-semibold ${
+                            issue.status === "Resolved"
+                              ? "text-[#3CB371]"
+                              : "text-[#FFD700]"
+                          }`}
+                        >
                           {issue.status}
                         </td>
                       </tr>

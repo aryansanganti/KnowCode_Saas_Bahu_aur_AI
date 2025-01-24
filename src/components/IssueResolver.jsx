@@ -1,155 +1,105 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
-import { FaHandHoldingHeart, FaTasks } from "react-icons/fa";
 
 const IssueResolver = () => {
   const { user } = useFirebase();
   const username = user?.displayName || user?.email;
-  const [issues, setIssues] = React.useState([]);
-  const [myTasks, setMyTasks] = React.useState([]);
-  const [globalIssues, setGlobalIssues] = React.useState([]);
+  const [issues, setIssues] = useState([]);
+  const [wallets, setWallets] = useState({});
 
-  React.useEffect(() => {
+  useEffect(() => {
+    // Fetch all issues from localStorage
     const allIssues = Object.keys(localStorage)
-      .filter((key) => key !== "loggedInUser")
+      .filter((key) => key !== "loggedInUser" && key !== "wallets")
       .flatMap((key) => JSON.parse(localStorage.getItem(key) || "[]"));
+    setIssues(allIssues);
 
-    const unresolvedIssues = allIssues.filter((issue) => {
-      // Ensure volunteers is an array
-      issue.volunteers = Array.isArray(issue.volunteers) ? issue.volunteers : [];
-      return issue.status === "Open";
-    });
+    // Fetch wallets from localStorage
+    const storedWallets = JSON.parse(localStorage.getItem("wallets")) || {};
+    setWallets(storedWallets);
+  }, []);
 
-    setIssues(unresolvedIssues);
-    setMyTasks(
-      allIssues.filter((issue) =>
-        Array.isArray(issue.volunteers)
-          ? issue.volunteers.includes(username)
-          : false
-      )
-    );
-    setGlobalIssues(unresolvedIssues);
-  }, [username]);
+  const handleResolve = (issueIndex) => {
+    const updatedIssues = [...issues];
+    const issue = updatedIssues[issueIndex];
 
-  const handleVolunteer = (index) => {
-    const issueToVolunteer = { ...issues[index] };
-
-    // Ensure volunteers is an array
-    issueToVolunteer.volunteers = Array.isArray(issueToVolunteer.volunteers)
-      ? issueToVolunteer.volunteers
-      : [];
-
-    if (issueToVolunteer.volunteers.includes(username)) {
-      alert("You have already volunteered for this issue.");
+    if (issue.status === "Resolved") {
+      alert("This issue is already resolved!");
       return;
     }
 
-    issueToVolunteer.volunteers.push(username);
-    issueToVolunteer.peopleRequired--;
+    // Mark issue as resolved
+    issue.status = "Resolved";
 
-    if (issueToVolunteer.peopleRequired === 0) {
-      issueToVolunteer.status = "Resolved";
+    // Add points to resolver's wallet
+    const updatedWallets = { ...wallets };
+    updatedWallets[username] = (updatedWallets[username] || 0) + 15;
+    setWallets(updatedWallets);
+    localStorage.setItem("wallets", JSON.stringify(updatedWallets));
+
+    // Remove resolved issue from the list
+    updatedIssues.splice(issueIndex, 1);
+    setIssues(updatedIssues);
+
+    // Update localStorage
+    const owner = issue.raisedBy;
+    const ownerIssues = JSON.parse(localStorage.getItem(owner)) || [];
+    const ownerIssueIndex = ownerIssues.findIndex((i) => i.text === issue.text);
+    if (ownerIssueIndex !== -1) {
+      ownerIssues[ownerIssueIndex] = issue;
+      localStorage.setItem(owner, JSON.stringify(ownerIssues));
     }
 
-    const userIssues = JSON.parse(localStorage.getItem(issueToVolunteer.raisedBy)) || [];
-    const updatedUserIssues = userIssues.map((issue) =>
-      issue.text === issueToVolunteer.text ? issueToVolunteer : issue
-    );
-    localStorage.setItem(issueToVolunteer.raisedBy, JSON.stringify(updatedUserIssues));
-
-    const updatedIssues = [...issues];
-    updatedIssues[index] = issueToVolunteer;
-
-    setIssues(updatedIssues.filter((issue) => issue.status === "Open"));
-    setMyTasks((prev) => [...prev, issueToVolunteer]);
-    setGlobalIssues(updatedIssues.filter((issue) => issue.status === "Open"));
-
-    alert("You have successfully volunteered for this issue!");
+    alert("Issue resolved successfully! 15 credits added to your EcoWallet.");
   };
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-[#3CB371] text-white p-6 flex items-center">
-          <FaHandHoldingHeart className="mr-4 text-4xl" />
           <h2 className="text-2xl font-bold">Resolve Community Issues</h2>
         </div>
 
         <div className="p-6">
-          <h3 className="text-xl font-bold mb-4 text-[#333333] flex items-center">
-            <FaHandHoldingHeart className="mr-3 text-[#4682B4]" />
-            Available Issues
-          </h3>
-          {globalIssues.length === 0 ? (
-            <p className="text-[#333333]">No issues available to resolve.</p>
+          {issues.length === 0 ? (
+            <p className="text-center text-[#333333]">No issues available to resolve.</p>
           ) : (
-            <div className="grid md:grid-cols-2 gap-4">
-              {globalIssues.map((issue, index) => (
-                <div
-                  key={index}
-                  className="border rounded-lg p-4 bg-[#F5F5DC] shadow-md hover:shadow-xl transition-all"
-                >
-                  {issue.photo && (
-                    <img
-                      src={issue.photo}
-                      alt="Issue"
-                      className="mb-4 w-full h-48 object-cover rounded-lg"
-                    />
-                  )}
-                  <h4 className="text-lg font-bold text-[#333333] mb-2">{issue.text}</h4>
-                  <p className="text-[#008080] mb-1">Location: {issue.location}</p>
-                  <p className="text-[#333333] mb-2">{issue.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#4682B4] font-semibold">
-                      People Required: {issue.peopleRequired}
-                    </span>
-                    <button
-                      onClick={() => handleVolunteer(index)}
-                      className="bg-[#008080] text-white px-4 py-2 rounded-md hover:bg-[#006666] transition-colors"
-                    >
-                      Volunteer
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-8">
-            <h3 className="text-xl font-bold mb-4 text-[#333333] flex items-center">
-              <FaTasks className="mr-3 text-[#4682B4]" />
-              My Tasks
-            </h3>
-            <div className="bg-[#F5F5DC] rounded-lg">
+            <div className="bg-[#F5F5DC] rounded-lg max-h-[500px] overflow-auto">
               <table className="w-full">
                 <thead className="bg-[#4682B4] text-white">
                   <tr>
                     <th className="p-3 text-left">Title</th>
+                    <th className="p-3 text-left">Location</th>
                     <th className="p-3 text-left">Status</th>
+                    <th className="p-3 text-left">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {myTasks.map((task, index) => (
-                    <tr
-                      key={index}
-                      className="border-b last:border-b-0 hover:bg-[#D3D3D3]/30"
-                    >
-                      <td className="p-3 text-[#333333]">{task.text}</td>
+                  {issues.map((issue, index) => (
+                    <tr key={index} className="border-b last:border-b-0 hover:bg-[#D3D3D3]/30">
+                      <td className="p-3 text-[#333333]">{issue.text}</td>
+                      <td className="p-3 text-[#333333]">{issue.location}</td>
                       <td
                         className={`p-3 font-semibold ${
-                          task.status === "Resolved"
-                            ? "text-[#3CB371]"
-                            : "text-[#FFD700]"
+                          issue.status === "Resolved" ? "text-[#3CB371]" : "text-[#FFD700]"
                         }`}
                       >
-                        {task.status}
+                        {issue.status}
+                      </td>
+                      <td className="p-3 flex gap-2">
+                        <button
+                          onClick={() => handleResolve(index)}
+                          className="bg-[#3CB371] text-white p-2 rounded-lg hover:bg-[#2E8B57]"
+                        >
+                          Resolve
+                        </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
@@ -157,4 +107,3 @@ const IssueResolver = () => {
 };
 
 export default IssueResolver;
-
