@@ -33,6 +33,7 @@ import Navbar from './Navbar';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import './LandingPage.css'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -44,6 +45,7 @@ import myImage from '../assets/hand.jpg';
 const LandingPage = () => {
   const page2Ref = useRef(null);
   const h1Ref = useRef(null);
+  const words = ['Reuse', 'Reduce', 'Recycle'];
 
   useGSAP(() => {
     const h1Element = h1Ref.current;
@@ -118,10 +120,17 @@ const LandingPage = () => {
 
         {/* Centered Text */}
         <div className="absolute text-black text-8xl font-bold text-center space-y-4">
-          <div>Reuse</div>
-          <div>Reduce</div>
-          <div>Recycle</div>
-        </div>
+  {/* Wrapper for each word with hover effect */}
+  {["Reuse", "Reduce", "Recycle"].map((word, index) => (
+    <div key={index} className="elem">
+      <div className="text-div">
+        <h1>{word}</h1>
+        <h1>{word}</h1>
+      </div>
+    </div>
+  ))}
+</div>
+
       </section>
 
       {/* Section 3: How to Use Title */}
