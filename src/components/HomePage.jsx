@@ -37,13 +37,15 @@ const HomePage = () => {
       <div className="text-center bg-white bg-opacity-90 p-10 rounded-3xl shadow-2xl z-10 transform hover:scale-105 transition-all duration-300">
         <h1 className="text-4xl font-bold mb-6 text-green-800">Welcome, {username}</h1>
         <p className="text-green-600 mb-8">Let's make a positive impact on our planet!</p>
-        <div className="grid grid-cols-3 gap-6">
-          <EcoButton to="/issue-raiser" icon={FaLeaf} label="Raise an Issue" color="green" />
-          <EcoButton to="/issue-resolver" icon={FaHandHoldingHeart} label="Resolve an Issue" color="blue" />
-          <EcoButton to="/reuse-page" icon={FaRecycle} label="Reuse" color="yellow" />
-          <EcoButton to="/reduce-page" icon={FaLightbulb} label="Reduce" color="orange" />
-          <EcoButton to="/recycle" icon={FaTree} label="Recycle" color="purple" />
-        </div>
+        <div className="grid grid-cols-3 gap-6 ml-20">
+  <EcoButton to="/issue-raiser" icon={FaLeaf} label="Raise an Issue" color="green" />
+  <EcoButton to="/issue-resolver" icon={FaHandHoldingHeart} label="Resolve an Issue" color="blue" />
+</div>
+<div className="grid grid-cols-3 gap-6 mt-6">
+  <EcoButton to="/reuse-page" icon={FaRecycle} label="Reuse" color="yellow" />
+  <EcoButton to="/reduce-page" icon={FaLightbulb} label="Reduce" color="red" />
+  <EcoButton to="/recycle" icon={FaTree} label="Recycle" color="purple" />
+</div>
       </div>
     </div>
   )
