@@ -53,15 +53,14 @@ const LandingPage = () => {
       // Clone the text
       const duplicateText = h1Element.cloneNode(true);
       duplicateText.style.position = 'absolute';
-      duplicateText.style.top = '0';
       duplicateText.style.left = '100%'; // Start right after the original text
-      parentElement.appendChild(duplicateText);
+      // parentElement.appendChild(duplicateText);
 
       // Infinite scroll animation
       const tl = gsap.timeline({ repeat: -1, defaults: { ease: 'linear' } });
       tl.to([h1Element, duplicateText], {
         x: '-100%', // Move both the original and duplicate
-        duration: 10,
+        duration: 150,
       });
     }
   }, { scope: page2Ref });
@@ -103,9 +102,8 @@ const LandingPage = () => {
       >
         <h1 
           ref={h1Ref}
-          className="text-white text-6xl font-bold uppercase text-nowrap absolute left-0"
-        >
-          LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.
+          class="text-white text-6xl font-bold uppercase text-nowrap absolute left-1/2 transform -translate-x-1/2">
+          LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.
         </h1>
       </section>
 
