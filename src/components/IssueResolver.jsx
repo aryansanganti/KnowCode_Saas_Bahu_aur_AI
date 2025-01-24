@@ -14,21 +14,36 @@ const IssueResolver = () => {
       .filter((key) => key !== "loggedInUser")
       .flatMap((key) => JSON.parse(localStorage.getItem(key) || "[]"));
 
-    const unresolvedIssues = allIssues.filter((issue) => issue.status === "Open");
+    const unresolvedIssues = allIssues.filter((issue) => {
+      // Ensure volunteers is an array
+      issue.volunteers = Array.isArray(issue.volunteers) ? issue.volunteers : [];
+      return issue.status === "Open";
+    });
+
     setIssues(unresolvedIssues);
-    setMyTasks(allIssues.filter((issue) => issue.volunteers?.includes(username)));
+    setMyTasks(
+      allIssues.filter((issue) =>
+        Array.isArray(issue.volunteers)
+          ? issue.volunteers.includes(username)
+          : false
+      )
+    );
     setGlobalIssues(unresolvedIssues);
   }, [username]);
 
   const handleVolunteer = (index) => {
     const issueToVolunteer = { ...issues[index] };
 
-    if (issueToVolunteer.volunteers?.includes(username)) {
+    // Ensure volunteers is an array
+    issueToVolunteer.volunteers = Array.isArray(issueToVolunteer.volunteers)
+      ? issueToVolunteer.volunteers
+      : [];
+
+    if (issueToVolunteer.volunteers.includes(username)) {
       alert("You have already volunteered for this issue.");
       return;
     }
 
-    issueToVolunteer.volunteers = issueToVolunteer.volunteers || [];
     issueToVolunteer.volunteers.push(username);
     issueToVolunteer.peopleRequired--;
 
@@ -44,6 +59,7 @@ const IssueResolver = () => {
 
     const updatedIssues = [...issues];
     updatedIssues[index] = issueToVolunteer;
+
     setIssues(updatedIssues.filter((issue) => issue.status === "Open"));
     setMyTasks((prev) => [...prev, issueToVolunteer]);
     setGlobalIssues(updatedIssues.filter((issue) => issue.status === "Open"));
@@ -74,10 +90,10 @@ const IssueResolver = () => {
                   className="border rounded-lg p-4 bg-[#F5F5DC] shadow-md hover:shadow-xl transition-all"
                 >
                   {issue.photo && (
-                    <img 
-                      src={issue.photo} 
-                      alt="Issue" 
-                      className="mb-4 w-full h-48 object-cover rounded-lg" 
+                    <img
+                      src={issue.photo}
+                      alt="Issue"
+                      className="mb-4 w-full h-48 object-cover rounded-lg"
                     />
                   )}
                   <h4 className="text-lg font-bold text-[#333333] mb-2">{issue.text}</h4>
@@ -114,14 +130,18 @@ const IssueResolver = () => {
                 </thead>
                 <tbody>
                   {myTasks.map((task, index) => (
-                    <tr 
-                      key={index} 
+                    <tr
+                      key={index}
                       className="border-b last:border-b-0 hover:bg-[#D3D3D3]/30"
                     >
                       <td className="p-3 text-[#333333]">{task.text}</td>
-                      <td className={`p-3 font-semibold ${
-                        task.status === 'Resolved' ? 'text-[#3CB371]' : 'text-[#FFD700]'
-                      }`}>
+                      <td
+                        className={`p-3 font-semibold ${
+                          task.status === "Resolved"
+                            ? "text-[#3CB371]"
+                            : "text-[#FFD700]"
+                        }`}
+                      >
                         {task.status}
                       </td>
                     </tr>
