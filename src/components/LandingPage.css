@@ -1,0 +1,26 @@
+.elem {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .text-div {
+    height: 16vh;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+  }
+  
+  .elem h1 {
+    font-size: 7.5vw; /* Adjust for responsive scaling */
+    font-weight: 600;
+    transition: all ease-out 0.5s;
+  }
+  
+  .elem:hover h1 {
+    transform: translateY(-100%);
+    color: #EDBFFF;
+  }
+  
