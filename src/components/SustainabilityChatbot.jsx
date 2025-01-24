@@ -13,6 +13,7 @@ const SustainabilityChatbot = () => {
   const [userInput, setUserInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [chatSession, setChatSession] = useState(null);
+  const [typingMessage, setTypingMessage] = useState('');
 
   const customPrompt = `
 You are a friendly and helpful chatbot for a sustainability-focused app similar to Reddit. The app aims to connect people and provide solutions for environmental problems.
@@ -45,6 +46,26 @@ Respond in a clear, concise, and engaging manner about sustainability.
     initializeChatSession();
   }, []);
 
+  const typeMessage = (message) => {
+    let index = 0;
+    setTypingMessage('');
+    
+    const typingEffect = setInterval(() => {
+      if (index < message.length) {
+        setTypingMessage((prev) => prev + message[index]);
+        index++;
+      } else {
+        clearInterval(typingEffect);
+        // Add the fully typed message to messages
+        setMessages(prevMessages => [
+          ...prevMessages.slice(0, -1),
+          { type: 'bot', text: message }
+        ]);
+        setTypingMessage('');
+      }
+    }, 30); // Adjust typing speed (lower number = faster typing)
+  };
+
   const handleSendMessage = async () => {
     if (!userInput.trim() || !chatSession) return;
 
@@ -61,10 +82,14 @@ Respond in a clear, concise, and engaging manner about sustainability.
       const response = result.response;
       const text = response.text();
 
+      // Add a temporary loading message
       setMessages(prevMessages => [
         ...prevMessages, 
-        { type: 'bot', text: text }
+        { type: 'bot', text: typingMessage }
       ]);
+
+      // Start typing effect
+      typeMessage(text);
     } catch (error) {
       setMessages(prevMessages => [
         ...prevMessages, 
@@ -92,14 +117,11 @@ Respond in a clear, concise, and engaging manner about sustainability.
                 : 'bg-green-100 text-left self-start'
             }`}
           >
-            {message.text}
+            {message.type === 'bot' && typingMessage && message === messages[messages.length - 1]
+              ? typingMessage
+              : message.text}
           </div>
         ))}
-        {isLoading && (
-          <div className="text-center text-gray-500">
-            Generating response...
-          </div>
-        )}
       </CardContent>
       
       <CardFooter className="flex space-x-2">

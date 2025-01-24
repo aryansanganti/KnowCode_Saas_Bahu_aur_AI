@@ -65,7 +65,7 @@ export default function ReducePage() {
           transition={{ duration: 0.5 }}
         >
           <Leaf className="mr-4 h-10 w-10 text-green-600" />
-          Reduce
+          
         </motion.h1>
 
         <motion.div
