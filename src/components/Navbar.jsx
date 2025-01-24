@@ -1,7 +1,13 @@
-import React from 'react';
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate(); // Initialize the navigation hook
+
+  const handleLoginClick = () => {
+    navigate("/login"); // Navigate to the /login route
+  };
+
   return (
     <nav className="flex justify-between items-center p-4 fixed top-0 w-full z-10 bg-transparent">
       {/* Branding */}
@@ -18,7 +24,10 @@ const Navbar = () => {
 
       {/* Login Button - Right */}
       <div>
-        <button className="border border-green-700 text-white py-1 px-4 hover:bg-white hover:text-gray-900 rounded-full transition-all duration-300">
+        <button
+          onClick={handleLoginClick}
+          className="border border-green-700 text-white py-1 px-4 hover:bg-white hover:text-gray-900 rounded-full transition-all duration-300"
+        >
           Login
         </button>
       </div>
