@@ -8,6 +8,9 @@ import IssueResolver from './components/IssueResolver';
 import LandingPage from './components/LandingPage';
 import ReusePage from './components/ReusePage';
 import ReducePage from './components/ReducePage';
+import RecycleTracker from './components/RecyclePage';
+import EcoDashboard from './components/EcoDashboard';
+
 
 function App() {
   return (
@@ -21,11 +24,13 @@ function App() {
           <Route path="/issue-resolver" element={<IssueResolver />} />
           <Route path="/reduce-page" element={<ReducePage/>} />
           <Route path="/reuse-page" element={<ReusePage />} />
-          <Route path="/recycle-page" element={<Recycle/>} />
+          <Route path="/recycle-page" element={<RecycleTracker/>} />
+          <Route path="/dashboard" element={<EcoDashboard/>} />
         </Routes>
       </FirebaseProvider>
     </Router>
   );
 }
+
 
 export default App;
