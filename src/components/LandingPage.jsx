@@ -42,7 +42,7 @@ const LandingPage = () => {
     <div className="overflow-y-auto h-screen w-screen scroll-smooth">
       <Navbar />
       
-      {/* Section 1: Title with Background Video */}
+      {/* Section 1: Title with Background Video */}      
       <section className="h-screen w-screen flex justify-center items-center bg-blue-500 text-white relative max-w-full max-h-screen">
         <video 
           className="absolute top-0 left-0 w-full h-full object-cover" 
@@ -58,7 +58,7 @@ const LandingPage = () => {
         </video>
 
         <div 
-          className="absolute top-0 left-0 w-full h-full bg-[#7FCC67] z-0"
+          className="absolute top-0 left-0 w-full h-full bg-[#EFE3C2] z-0"
           style={{
             clipPath: 'polygon(0% 0%, 40% 0%, 20% 100%, 0% 100%)',
           }}
@@ -71,7 +71,7 @@ const LandingPage = () => {
 
       <section 
         ref={page2Ref} 
-        className="relative h-[24vh] w-screen bg-black flex justify-center items-center overflow-hidden"
+        className="relative h-[18vh] w-screen bg-[#123524] flex justify-center items-center overflow-hidden"
       >
         <h1 
           ref={h1Ref}
@@ -105,7 +105,7 @@ const LandingPage = () => {
       </section>
 
       {/* Section 3: How to Use Title */}
-      <section className="h-screen w-screen flex flex-col justify-center items-center bg-green-400 text-white px-8 max-w-full max-h-screen">
+      <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#85A947] text-white px-8 max-w-full max-h-screen">
         <h2 className="text-4xl font-bold mb-6">How to Use This App</h2>
         <div className="flex items-center space-x-6">
           {/* First Image with two arrows pointing to the center */}
@@ -163,7 +163,7 @@ const LandingPage = () => {
       </section>
 
       {/* Section 4: FAQs */}
-      <section className="h-screen w-screen flex flex-col justify-center items-center bg-yellow-300 px-8 max-w-full max-h-screen">
+      <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#3E7B27] px-8 max-w-full max-h-screen">
         <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
         <div className="space-y-4 max-w-2xl">
           <div className="bg-white p-4 rounded-lg shadow-md">
