@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
+import Navbar from "./Navbar";
 
 const EcoDashboard = () => {
   const { user } = useFirebase();
@@ -34,7 +35,9 @@ const EcoDashboard = () => {
     .map(([name, credits]) => ({ name, credits }));
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-blue-600 text-white p-6 flex items-center">
           <h2 className="text-2xl font-bold">EcoWallet Dashboard</h2>
@@ -76,6 +79,7 @@ const EcoDashboard = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

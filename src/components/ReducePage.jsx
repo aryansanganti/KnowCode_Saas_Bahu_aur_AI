@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Leaf, ChevronDown, ChevronUp } from "lucide-react"
+import Navbar from "./Navbar"
 
 const reduceTips = [
   {
@@ -56,7 +57,9 @@ export default function ReducePage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-green-100 p-4 sm:p-8">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-teal-50 to-green-100 p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-4xl sm:text-5xl font-bold text-teal-800 mb-8 flex items-center justify-center"
@@ -139,6 +142,7 @@ export default function ReducePage() {
         )}
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
+import Navbar from "./Navbar";
 
 const IssueResolver = () => {
   const { user } = useFirebase();
@@ -54,7 +55,9 @@ const IssueResolver = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
+    <>
+    <Navbar/>
+      <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-[#3CB371] text-white p-6 flex items-center">
           <h2 className="text-2xl font-bold">Resolve Community Issues</h2>
@@ -103,6 +106,7 @@ const IssueResolver = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

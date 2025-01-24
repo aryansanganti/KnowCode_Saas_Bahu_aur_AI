@@ -10,6 +10,8 @@ import ReusePage from './components/ReusePage';
 import ReducePage from './components/ReducePage';
 import RecycleTracker from './components/RecyclePage';
 import EcoDashboard from './components/EcoDashboard';
+import ContactUs from './components/ContactUs';
+import MarketPlace from './components/MarketPlace';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path="/reuse-page" element={<ReusePage />} />
           <Route path="/recycle-page" element={<RecycleTracker/>} />
           <Route path="/dashboard" element={<EcoDashboard/>} />
+          <Route path="/contact" element={<ContactUs/>} />
+          <Route path="/marketplace" element={<MarketPlace/>} />
         </Routes>
       </FirebaseProvider>
     </Router>

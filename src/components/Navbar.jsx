@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import EcoDashboard from "./EcoDashboard";
 import ContactUs from "./ContactUs";
+import EcoFriendlyCommunityForum from "./CommunityForum";
+import MarketPlace from "./MarketPlace";
 
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize the navigation hook
@@ -22,6 +24,8 @@ const Navbar = () => {
         <a href={<HomePage/>}><button className="text-white text-base hover:text-gray-300">Home</button></a>
         <a href={<EcoDashboard/>}><button className="text-white text-base hover:text-gray-300">Dashboard</button></a>
         <a href={<ContactUs/>}><button className="text-white text-base hover:text-gray-300">Contact</button></a>
+        <a href={<EcoFriendlyCommunityForum/>}><button className="text-white text-base hover:text-gray-300">Community</button></a>
+        <a href={<MarketPlace/>}><button className="text-white text-base hover:text-gray-300">Market Place</button></a>
       </div>
 
       {/* Login Button - Right */}

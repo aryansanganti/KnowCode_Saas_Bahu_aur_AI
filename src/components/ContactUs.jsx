@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Navbar from "./Navbar";
 
 const ContactUs = () => {
   const formRef = useRef(null);
@@ -35,6 +36,8 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+      <Navbar/>
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
       <h1 className="text-2xl font-bold mb-6">Contact Us</h1>
       <form
@@ -98,6 +101,7 @@ const ContactUs = () => {
         {status && <p className="mt-4 text-sm text-gray-600">{status}</p>}
       </form>
     </div>
+    </>
   );
 };
 

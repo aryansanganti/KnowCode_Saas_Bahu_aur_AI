@@ -3,13 +3,16 @@ import { Link } from "react-router-dom"
 import { useFirebase } from "../context/Firebase"
 import { FiLogOut } from "react-icons/fi"
 import { FaLeaf, FaRecycle, FaHandHoldingHeart, FaLightbulb, FaTree } from "react-icons/fa"
+import Navbar from "./Navbar"
 
 const HomePage = () => {
   const { user, handleLogout } = useFirebase()
   const username = user?.displayName || user?.email || "Eco Warrior"
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50 flex flex-col items-center justify-center relative overflow-hidden">
+    <>
+    <Navbar />
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50 flex flex-col items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         {[...Array(20)].map((_, i) => (
           <div
@@ -44,10 +47,11 @@ const HomePage = () => {
 <div className="grid grid-cols-3 gap-6 mt-6">
   <EcoButton to="/reuse-page" icon={FaRecycle} label="Reuse" color="yellow" />
   <EcoButton to="/reduce-page" icon={FaLightbulb} label="Reduce" color="red" />
-  <EcoButton to="/recycle" icon={FaTree} label="Recycle" color="purple" />
+  <EcoButton to="/recycle-page" icon={FaTree} label="Recycle" color="purple" />
 </div>
       </div>
     </div>
+    </>
   )
 }
 

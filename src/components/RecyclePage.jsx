@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useFirebase } from "../context/Firebase";
 import { FaRecycle, FaListAlt } from "react-icons/fa";
 import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import Navbar from "./Navbar";
 
 const RecycleTracker = () => {
   const { user } = useFirebase();
@@ -56,7 +57,9 @@ const RecycleTracker = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-[#32CD32] text-white p-6 flex items-center">
           <FaRecycle className="mr-4 text-4xl" />
@@ -135,6 +138,7 @@ const RecycleTracker = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

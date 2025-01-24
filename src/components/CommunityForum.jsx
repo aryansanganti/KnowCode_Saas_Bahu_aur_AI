@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import  { useState, useEffect } from "react"
 import {
   Leaf,
   User,
@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import { useFirebase } from "../context/Firebase"
 import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "firebase/firestore"
+import Navbar from "./Navbar"
 
 const EcoFriendlyCommunityForum = () => {
   const [activeTab, setActiveTab] = useState("Explore")
@@ -78,7 +79,9 @@ const EcoFriendlyCommunityForum = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-green-50">
+    <>
+      <Navbar />
+      <div className="flex min-h-screen bg-green-50">
       {/* Sidebar */}
       <aside className="w-64 bg-green-800 text-green-100 h-screen sticky top-0 overflow-y-auto">
         <div className="p-6 flex items-center space-x-2">
@@ -184,7 +187,8 @@ const EcoFriendlyCommunityForum = () => {
         )}
       </main>
     </div>
-  )
+    </>
+  );
 }
 
 export default EcoFriendlyCommunityForum

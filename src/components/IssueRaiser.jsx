@@ -1,5 +1,6 @@
 import  { useEffect, useState } from "react";
 import { FaPlus, FaListAlt } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 // Utility function for safe JSON parsing
 const safeParse = (key, fallback = null) => {
@@ -82,7 +83,9 @@ const IssueRaiser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
+    <>
+    <Navbar/>
+      <div className="min-h-screen bg-[#FAFAFA] py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-[#4682B4] text-white p-6 flex items-center">
           <FaPlus className="mr-4 text-4xl" />
@@ -183,6 +186,8 @@ const IssueRaiser = () => {
         </div>
       </div>
     </div>
+
+    </>
   );
 };
 

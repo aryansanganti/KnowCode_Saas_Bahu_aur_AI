@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Recycle, ChevronDown, ChevronUp } from "lucide-react"
+import Navbar from "./Navbar"
 
 const reuseIdeas = [
   {
@@ -78,7 +79,9 @@ export default function ReusePage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 p-4 sm:p-8">
+    <>
+     <Navbar />
+     <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-4xl sm:text-5xl font-bold text-green-800 mb-8 flex items-center justify-center"
@@ -161,6 +164,7 @@ export default function ReusePage() {
         )}
       </div>
     </div>
+    </>
   )
 }
 
