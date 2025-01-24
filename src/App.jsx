@@ -21,6 +21,7 @@ function App() {
           <Route path="/issue-resolver" element={<IssueResolver />} />
           <Route path="/reduce-page" element={<ReducePage/>} />
           <Route path="/reuse-page" element={<ReusePage />} />
+          <Route path="/recycle-page" element={<Recycle/>} />
         </Routes>
       </FirebaseProvider>
     </Router>

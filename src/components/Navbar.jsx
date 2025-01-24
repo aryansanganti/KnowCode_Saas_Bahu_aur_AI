@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import EcoDashboard from "./EcoDashboard";
-import ContactUs from "./ContactUs";s
+import ContactUs from "./ContactUs";
 
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize the navigation hook
