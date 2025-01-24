@@ -13,9 +13,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 fixed top-0 w-full z-10 bg-transparent">
+    <nav className="flex justify-between items-center p-4 fixed top-0 w-full z-10 bg-black">
       {/* Branding */}
-      <div className="text-white text-xl font family-Gilroy">
+      <div className="text-white text-xl font family-Monograph">
         Eco-Connect
       </div>
 
