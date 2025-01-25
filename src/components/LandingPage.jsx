@@ -1,3 +1,4 @@
+
 import FloatingChatBubble from './FloatingChatBubble';
 import React, { useRef } from "react";
 import Navbar from './Navbar';
@@ -228,7 +229,7 @@ const LandingPage = () => {
           <FloatingChatBubble />
           {/* Copyright Section */}
           <div className="mt-8 text-center text-lg">
-            <p>©️ {new Date().getFullYear()} Sustainability. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Sustainability. All rights reserved.</p>
           </div>
         </div>
       </footer>
