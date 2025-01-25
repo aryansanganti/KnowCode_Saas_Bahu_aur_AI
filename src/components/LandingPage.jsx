@@ -13,6 +13,10 @@ gsap.registerPlugin(ScrollTrigger);
 // Import assets
 import backgroundVideo from '../assets/sus.mp4';
 import myImage from '../assets/hand.jpg';
+import myImage1 from '../assets/dash.jpg';
+import myImage2 from '../assets/dash.jpg';
+import myImage3 from '../assets/dash.jpg';
+import myImage4 from '../assets/dash.jpg';
 
 const LandingPage = () => {
   const page2Ref = useRef(null);
@@ -33,7 +37,7 @@ const LandingPage = () => {
       const tl = gsap.timeline({ repeat: -1, defaults: { ease: 'linear' } });
       tl.to([h1Element, duplicateText], {
         x: '-100%', // Move both the original and duplicate
-        duration: 150,
+        duration: 200,
       });
     }
   }, { scope: page2Ref });
@@ -64,8 +68,8 @@ const LandingPage = () => {
           }}
         ></div>
 
-        <h1 className="text-8xl font-family-Gilroy font-bold z-2 absolute top-[40%] left-[5vw]">
-          Where Sustainability meets Possibility
+        <h1 className="yes text-8xl font-bold z-2 absolute top-[30%] left-[5vw]">
+          Where <p>Sustainability</p> meets <p>Possibility</p>
         </h1>
       </section>
 
@@ -75,8 +79,8 @@ const LandingPage = () => {
       >
         <h1 
           ref={h1Ref}
-          class="text-white text-6xl font-bold uppercase text-nowrap absolute left-1/2 transform -translate-x-1/2">
-          LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.LIVE GREEN . LIVE WELL. GREENING EVERY STEP OF THE WAY.
+          class="no text-white text-6xl font-bold  text-nowrap absolute left-1/2 transform -translate-x-1/2">
+          Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. Live Green. Live Well. Greening Every Step of the Way. L
         </h1>
       </section>
 
@@ -90,7 +94,7 @@ const LandingPage = () => {
         />
 
         {/* Centered Text */}
-        <div className="absolute text-black text-8xl font-bold text-center space-y-4">
+        <div className="absolute text-black text-8xl font-bold font-Ultra text-center space-y-4">
   {/* Wrapper for each word with hover effect */}
   {["REUSE", "REDUCE", "RECYCLE"].map((word, index) => (
     <div key={index} className="elem">
@@ -111,7 +115,7 @@ const LandingPage = () => {
           {/* First Image with two arrows pointing to the center */}
           <div className="flex flex-col items-center">
             <img
-              src="image1.png"
+              src={myImage1}
               alt="Step 1"
               className="w-56 h-56 object-cover rounded-lg shadow-lg"
             />
@@ -128,7 +132,7 @@ const LandingPage = () => {
           <div className="flex flex-col items-center space-y-4">
             <div className="flex flex-col items-center">
               <img
-                src="image2.png"
+                src={myImage2}
                 alt="Step 2"
                 className="w-56 h-56 object-cover rounded-lg shadow-lg"
               />
@@ -136,7 +140,7 @@ const LandingPage = () => {
             </div>
             <div className="flex flex-col items-center">
               <img
-                src="image3.png"
+                src={myImage3}
                 alt="Step 3"
                 className="w-56 h-56 object-cover rounded-lg shadow-lg"
               />
@@ -153,7 +157,7 @@ const LandingPage = () => {
           {/* Last Image */}
           <div className="flex flex-col items-center">
             <img
-              src="image4.png"
+              src={myImage4}
               alt="Step 4"
               className="w-56 h-56 object-cover rounded-lg shadow-lg"
             />
@@ -165,14 +169,14 @@ const LandingPage = () => {
       {/* Section 4: FAQs */}
       <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#85A947] px-8 max-w-full max-h-screen">
         <div className="NEW bg-[#EFE3C2]">
-        <h2 className="text-4xl font-bold mb-6 font family-Gilroy">Frequently Asked Questions</h2>
+        <h2 className="text-4xl font-bold mb-6 font family-Poppins">Frequently Asked Questions</h2>
         <div className="space-y-4 max-w-7xl">
           <div className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold">What is Eco-Connect?</h3>
             <p> Eco-Connect is a sustainability-focused platform dedicated to helping individuals and businesses adopt more eco-friendly practices. We provide tools and resources that promote problem-solving, reducing waste, reusing products, and recycling effectively, while connecting users to eco-conscious vendors and initiatives.</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Can I contribute content or share resources on the platform?</h3>
+            <h3 className="text-xl font-semibold font family-Poppins">Can I contribute content or share resources on the platform?</h3>
             <p>
             Yes! We welcome community involvement. If you have an article, blog post, or resource that aligns with our mission of sustainability, feel free to share it with us. We’re always looking for contributors to help expand our knowledge base and share new ideas.
             </p>
