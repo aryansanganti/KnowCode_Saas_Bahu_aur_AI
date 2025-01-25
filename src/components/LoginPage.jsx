@@ -1,4 +1,3 @@
-import React from "react";
 import { useFirebase } from "../context/Firebase";
 import { FcGoogle } from "react-icons/fc";
 import Navbar from "./Navbar";
