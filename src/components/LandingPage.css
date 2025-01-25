@@ -23,4 +23,19 @@
     transform: translateY(-100%);
     color: #EDBFFF;
   }
-  
+  .NEW {
+    background-color: #EFE3C2;
+    height: 90vh;
+    width: 90vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* Makes sure children (h2 and h3) are stacked vertically */
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: center; /* Centers horizontally */
+    padding-top: 7vh; /* Adds spacing between the container edge and the content */
+  }
+  .New {
+    background-color: rgb(0, 0, 0);
+    height: 90vh;
+    width: 90vw;
+  }
