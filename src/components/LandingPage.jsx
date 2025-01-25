@@ -1,4 +1,3 @@
-
 import FloatingChatBubble from './FloatingChatBubble';
 import React, { useRef } from "react";
 import Navbar from './Navbar';
@@ -6,7 +5,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './LandingPage.css'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,90 +104,91 @@ const LandingPage = () => {
       </section>
 
       {/* Section 3: How to Use Title */}
-      <section className="h-screen w-screen flex justify-center items-center bg-[#85A947] text-white px-8 max-w-full max-h-screen">
-      <Card className="w-full max-w-5.1xl p-2">
-        <CardHeader>
-          <CardTitle className="text-4xl font-bold text-center mb-6">How to Use This App</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-center space-x-6">
-            {/* First Image with two arrows pointing to the center */}
+      <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#85A947] text-white px-8 max-w-full max-h-screen">
+        <h2 className="text-4xl font-bold mb-6">How to Use This App</h2>
+        <div className="flex items-center space-x-6">
+          {/* First Image with two arrows pointing to the center */}
+          <div className="flex flex-col items-center">
+            <img
+              src="image1.png"
+              alt="Step 1"
+              className="w-56 h-56 object-cover rounded-lg shadow-lg"
+            />
+            <p className="mt-2 text-lg">Step 1</p>
+          </div>
+
+          {/* Arrows pointing to the two center images */}
+          <div className="flex flex-col items-center space-y-4">
+            <span className="text-8xl font-bold transform rotate-[-45deg]">{`→`}</span>
+            <span className="text-8xl font-bold transform rotate-[45deg]">{`→`}</span>
+          </div>
+
+          {/* Two Center Images */}
+          <div className="flex flex-col items-center space-y-4">
             <div className="flex flex-col items-center">
               <img
-                src="image1.png"
-                alt="Step 1"
+                src="image2.png"
+                alt="Step 2"
                 className="w-56 h-56 object-cover rounded-lg shadow-lg"
               />
-              <p className="mt-2 text-lg">Step 1</p>
+              <p className="mt-2 text-lg">Step 2</p>
             </div>
-
-            {/* Arrows pointing to the two center images */}
-            <div className="flex flex-col items-center space-y-4">
-              <span className="text-8xl font-bold transform rotate-[-45deg]">{`→`}</span>
-              <span className="text-8xl font-bold transform rotate-[45deg]">{`→`}</span>
-            </div>
-
-            {/* Two Center Images */}
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex flex-col items-center">
-                <img
-                  src="image2.png"
-                  alt="Step 2"
-                  className="w-56 h-56 object-cover rounded-lg shadow-lg"
-                />
-                <p className="mt-2 text-lg">Step 2</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img
-                  src="image3.png"
-                  alt="Step 3"
-                  className="w-56 h-56 object-cover rounded-lg shadow-lg"
-                />
-                <p className="mt-2 text-lg">Step 3</p>
-              </div>
-            </div>
-
-            {/* Arrows pointing to the last image */}
-            <div className="flex flex-col items-center space-y-4">
-              <span className="text-8xl font-bold transform rotate-[45deg]">{`→`}</span>
-              <span className="text-8xl font-bold transform rotate-[-45deg]">{`→`}</span>
-            </div>
-
-            {/* Last Image */}
             <div className="flex flex-col items-center">
               <img
-                src="image4.png"
-                alt="Step 4"
+                src="image3.png"
+                alt="Step 3"
                 className="w-56 h-56 object-cover rounded-lg shadow-lg"
               />
-              <p className="mt-2 text-lg">Step 4</p>
+              <p className="mt-2 text-lg">Step 3</p>
             </div>
           </div>
-        </CardContent>
-      </Card>
-    </section>
+
+          {/* Arrows pointing to the last image */}
+          <div className="flex flex-col items-center space-y-4">
+            <span className="text-8xl font-bold transform rotate-[45deg]">{`→`}</span>
+            <span className="text-8xl font-bold transform rotate-[-45deg]">{`→`}</span>
+          </div>
+
+          {/* Last Image */}
+          <div className="flex flex-col items-center">
+            <img
+              src="image4.png"
+              alt="Step 4"
+              className="w-56 h-56 object-cover rounded-lg shadow-lg"
+            />
+            <p className="mt-2 text-lg">Step 4</p>
+          </div>
+        </div>
+      </section>
 
       {/* Section 4: FAQs */}
       <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#85A947] px-8 max-w-full max-h-screen">
+        <div className="NEW bg-[#EFE3C2]">
         <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-4 max-w-2xl">
+        <div className="space-y-4 max-w-7xl">
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">What is this app for?</h3>
-            <p>This app is a demonstration of a multi-section layout in React.</p>
+            <h3 className="text-xl font-semibold">What is Eco-Connect?</h3>
+            <p> Eco-Connect is a sustainability-focused platform dedicated to helping individuals and businesses adopt more eco-friendly practices. We provide tools and resources that promote problem-solving, reducing waste, reusing products, and recycling effectively, while connecting users to eco-conscious vendors and initiatives.</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">How can I customize it?</h3>
+            <h3 className="text-xl font-semibold">Can I contribute content or share resources on the platform?</h3>
             <p>
-              You can customize the sections by modifying the components and styles
-              in the source code.
+            Yes! We welcome community involvement. If you have an article, blog post, or resource that aligns with our mission of sustainability, feel free to share it with us. We’re always looking for contributors to help expand our knowledge base and share new ideas.
             </p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Is this app responsive?</h3>
+            <h3 className="text-xl font-semibold">How can I contribute to sustainability through this app?</h3>
             <p>
-              Yes, the app is designed to be fully responsive using Tailwind CSS.
+            By using the app’s resources, you can start implementing sustainable practices in your daily life. You can reduce waste, reuse materials, and recycle responsibly. Additionally, you can share your own tips, use the marketplace, and spread awareness of sustainable practices in your community.
             </p>
           </div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h3 className="text-xl font-semibold">How can I contribute to sustainability through this app?</h3>
+            <p>
+            By using the app’s resources, you can start implementing sustainable practices in your daily life. You can reduce waste, reuse materials, and recycle responsibly. Additionally, you can share your own tips, use the marketplace, and spread awareness of sustainable practices in your community.
+            </p>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -228,7 +228,7 @@ const LandingPage = () => {
           <FloatingChatBubble />
           {/* Copyright Section */}
           <div className="mt-8 text-center text-lg">
-            <p>© {new Date().getFullYear()} Sustainability. All rights reserved.</p>
+            <p>©️ {new Date().getFullYear()} Sustainability. All rights reserved.</p>
           </div>
         </div>
       </footer>
