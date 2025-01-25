@@ -38,7 +38,7 @@ const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#EFE3C2] p-6">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#EFE3C2] to-[#85A947] p-6">
         <h1 className="text-3xl font-bold mb-6 text-[#123524]">Contact Us</h1>
         <form
           ref={formRef}

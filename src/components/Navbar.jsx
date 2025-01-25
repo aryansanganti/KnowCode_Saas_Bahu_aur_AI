@@ -1,10 +1,14 @@
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useFirebase } from "../context/Firebase"; // Adjust the import path as needed
+import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // Navigation hook for the Login button
+  const navigate = useNavigate();
+  const { user, handleLogout } = useFirebase();
 
   const handleLoginClick = () => {
-    navigate("/login"); // Navigate to the /login route
+    navigate("/login");
   };
 
   return (
@@ -43,14 +47,26 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Login Button */}
-      <div>
-        <button
-          onClick={handleLoginClick}
-          className="border border-green-700 text-white py-1 px-4 hover:bg-white hover:text-gray-900 rounded-full transition-all duration-300"
-        >
-          Login
-        </button>
+      {/* Login/Logout Button */}
+      <div className="flex items-center space-x-4">
+        {user ? (
+          <div className="absolute top-4 right-4 z-10">
+            <button
+              onClick={handleLogout}
+              className="text-[#123524] hover:text-[#3E7B27] flex items-center space-x-2 bg-[#EFE3C2] bg-opacity-80 rounded-full px-4 py-2 transition-all duration-300 hover:bg-opacity-100"
+            >
+              <FiLogOut />
+              <span>Logout</span>
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={handleLoginClick}
+            className="border border-green-700 text-white py-1 px-4 hover:bg-white hover:text-gray-900 rounded-full transition-all duration-300"
+          >
+            Login
+          </button>
+        )}
       </div>
     </nav>
   );

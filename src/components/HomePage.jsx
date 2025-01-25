@@ -29,13 +29,13 @@ const HomePage = () => {
           ))}
         </div>
         <div className="absolute top-4 right-4 z-10">
-          <button
+          {/* <button
             onClick={handleLogout}
             className="text-[#123524] hover:text-[#3E7B27] flex items-center space-x-2 bg-[#EFE3C2] bg-opacity-80 rounded-full px-4 py-2 transition-all duration-300 hover:bg-opacity-100"
           >
             <FiLogOut />
             <span>Logout</span>
-          </button>
+          </button> */}
         </div>
         <div className="text-center bg-[#EFE3C2] bg-opacity-90 p-10 rounded-3xl shadow-2xl z-10 transform hover:scale-105 transition-all duration-300">
           <h1 className="text-4xl font-bold mb-6 text-[#3E7B27]">Welcome, {username}</h1>
