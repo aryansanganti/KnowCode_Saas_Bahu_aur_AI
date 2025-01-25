@@ -27,7 +27,7 @@ Respond in a clear, concise, and engaging manner about sustainability.
 
   useEffect(() => {
     const initializeChatSession = async () => {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-exp-1206" });
       const chat = model.startChat({
         history: [
           {
