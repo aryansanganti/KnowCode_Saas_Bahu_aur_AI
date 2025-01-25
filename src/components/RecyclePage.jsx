@@ -56,7 +56,7 @@ const RecycleTracker = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#EFE3C2] py-10 px-4">
+      <div className="min-h-screen mt-9 bg-[#EFE3C2] py-10 px-4">
         <div className="max-w-4xl mx-auto bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
           <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
             <FaRecycle className="mr-4 text-4xl" />

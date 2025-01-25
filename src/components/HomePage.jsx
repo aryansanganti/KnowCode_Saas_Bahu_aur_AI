@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           {[...Array(20)].map((_, i) => (
             <div

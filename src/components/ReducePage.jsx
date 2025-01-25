@@ -59,7 +59,7 @@ export default function ReducePage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-[#EFE3C2] to-[#85A947] p-4 sm:p-8">
+      <div className="min-h-screen  mt-9 bg-gradient-to-br from-[#EFE3C2] to-[#85A947] p-4 sm:p-8">
         <div className="max-w-4xl mx-auto">
           <motion.h1
             className="text-4xl sm:text-5xl font-bold text-[#123524] mb-8 flex items-center justify-center"
