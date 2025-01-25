@@ -45,7 +45,7 @@ const LandingPage = () => {
       {/* Section 1: Title with Background Video */}      
       <section className="h-screen w-screen flex justify-center items-center bg-blue-500 text-white relative max-w-full max-h-screen">
         <video 
-          className="absolute top-0 left-0 w-full h-full object-cover" 
+          className="absolute top-0 left-0 w-full h-full object-cover transform scale-x-[-1]" 
           autoPlay 
           loop 
           muted
@@ -165,7 +165,7 @@ const LandingPage = () => {
       {/* Section 4: FAQs */}
       <section className="h-screen w-screen flex flex-col justify-center items-center bg-[#85A947] px-8 max-w-full max-h-screen">
         <div className="NEW bg-[#EFE3C2]">
-        <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+        <h2 className="text-4xl font-bold mb-6 font family-Gilroy">Frequently Asked Questions</h2>
         <div className="space-y-4 max-w-7xl">
           <div className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold">What is Eco-Connect?</h3>
@@ -197,34 +197,6 @@ const LandingPage = () => {
       <footer className="bg-gradient-to-r from-green-600 to-blue-500 py-12 text-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Logo/Brand Name */}
-            <div className="text-2xl font-semibold">
-              <span>Sustainability</span>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#home" className="hover:text-gray-300">Home</a>
-              <a href="#about" className="hover:text-gray-300">About</a>
-              <a href="#services" className="hover:text-gray-300">Services</a>
-              <a href="#contact" className="hover:text-gray-300">Contact</a>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-gray-300">
-                <i className="fab fa-facebook-f"></i> {/* Facebook Icon */}
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                <i className="fab fa-twitter"></i> {/* Twitter Icon */}
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                <i className="fab fa-linkedin-in"></i> {/* LinkedIn Icon */}
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                <i className="fab fa-instagram"></i> {/* Instagram Icon */}
-              </a>
-            </div>
           </div>
           <FloatingChatBubble />
           {/* Copyright Section */}
