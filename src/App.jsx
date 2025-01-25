@@ -12,6 +12,7 @@ import RecycleTracker from './components/RecyclePage';
 import EcoDashboard from './components/EcoDashboard';
 import ContactUs from './components/ContactUs';
 import MarketPlace from './components/MarketPlace';
+import EcoFriendlyCommunityForum from './components/CommunityForum';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/dashboard" element={<EcoDashboard/>} />
           <Route path="/contact" element={<ContactUs/>} />
           <Route path="/marketplace" element={<MarketPlace/>} />
+          <Route path="/community" element={<EcoFriendlyCommunityForum/>} />
         </Routes>
       </FirebaseProvider>
     </Router>
