@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useFirebase } from "../context/Firebase"
 import { FaRecycle, FaListAlt, FaPlus } from "react-icons/fa"
 import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore"

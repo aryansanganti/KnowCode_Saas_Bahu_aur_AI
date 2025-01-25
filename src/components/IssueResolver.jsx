@@ -153,85 +153,51 @@ const IssueResolver = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="flex gap-6 max-w-6xl mx-auto">
-          {/* Main Issue Resolver Section */}
-          <div className="w-3/4 bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
-            <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
-              <h2 className="text-2xl font-bold">Resolve Community Issues</h2>
-            </div>
-            <div className="p-6">
-              {issues.length === 0 ? (
-                <p className="text-center text-[#123524]">
-                  No issues available to resolve.
-                </p>
-              ) : (
-                <div className="bg-[#EFE3C2] rounded-lg max-h-[500px] overflow-auto">
-                  <table className="w-full">
-                    <thead className="bg-[#3E7B27] text-[#EFE3C2]">
-                      <tr>
-                        <th className="p-3 text-left">Title</th>
-                        <th className="p-3 text-left">Location</th>
-                        <th className="p-3 text-left">Status</th>
-                        <th className="p-3 text-left">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {issues.map((issue, index) => (
-                        <tr
-                          key={index}
-                          className="border-b last:border-b-0 hover:bg-[#85A947]/30"
-                        >
-                          <td className="p-3 text-[#123524]">{issue.text}</td>
-                          
-                          <td className="p-3 text-[#123524]">
-                            {issue.location}
-                          </td>
-                          <td
-                            className={`p-3 font-semibold ${
-                              issue.status === "Resolved"
-                                ? "text-[#3E7B27]"
-                                : "text-[#123524]"
-                            }`}
-                          >
-                            {issue.status}
-                          </td>
-                          <td className="p-3 flex gap-2">
-                            <button
-                              onClick={() => handleResolve(index)}
-                              className="bg-[#3E7B27] text-[#EFE3C2] p-2 rounded-lg hover:bg-[#123524]"
-                            >
-                              Resolve
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
+      <div className="min-h-screen mt-9 bg-[#EFE3C2] py-10 px-4">
+        <div className="max-w-4xl mx-auto bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
+          <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
+            <h2 className="text-2xl font-bold">Resolve Community Issues</h2>
           </div>
 
-          {/* Live Data Section */}
-          <div className="w-1/4 bg-[#EFE3C2] rounded-xl shadow-lg p-4">
-            <h3 className="text-xl font-bold text-[#3E7B27] mb-4">
-              Live Data from the World
-            </h3>
-            {liveData ? (
-              <div className="text-center">
-                <img
-                  src={liveData.photo}
-                  alt={liveData.issue}
-                  className="w-full h-40  rounded-lg mb-4"
-                />
-                <h4 className="font-bold text-lg text-[#123524]">
-                  {liveData.location}
-                </h4>
-                <p className="text-sm text-[#123524]">{liveData.issue}</p>
-              </div>
+          <div className="p-6">
+            {issues.length === 0 ? (
+              <p className="text-center text-[#123524]">No issues available to resolve.</p>
             ) : (
-              <p className="text-[#123524]">Loading...</p>
+              <div className="bg-[#EFE3C2] rounded-lg max-h-[500px] overflow-auto">
+                <table className="w-full">
+                  <thead className="bg-[#3E7B27] text-[#EFE3C2]">
+                    <tr>
+                      <th className="p-3 text-left">Title</th>
+                      <th className="p-3 text-left">Location</th>
+                      <th className="p-3 text-left">Status</th>
+                      <th className="p-3 text-left">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {issues.map((issue, index) => (
+                      <tr key={index} className="border-b last:border-b-0 hover:bg-[#85A947]/30">
+                        <td className="p-3 text-[#123524]">{issue.text}</td>
+                        <td className="p-3 text-[#123524]">{issue.location}</td>
+                        <td
+                          className={`p-3 font-semibold ${
+                            issue.status === "Resolved" ? "text-[#3E7B27]" : "text-[#123524]"
+                          }`}
+                        >
+                          {issue.status}
+                        </td>
+                        <td className="p-3 flex gap-2">
+                          <button
+                            onClick={() => handleResolve(index)}
+                            className="bg-[#3E7B27] text-[#EFE3C2] p-2 rounded-lg hover:bg-[#123524]"
+                          >
+                            Resolve
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
           </div>
         </div>

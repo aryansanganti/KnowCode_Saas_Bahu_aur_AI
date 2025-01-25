@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 import { FaPlus, FaListAlt } from "react-icons/fa"
 import Navbar from "./Navbar"
 import { GoogleGenerativeAI } from "@google/generative-ai"

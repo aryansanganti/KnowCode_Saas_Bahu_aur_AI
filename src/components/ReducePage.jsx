@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import  { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Leaf, ChevronDown, ChevronUp } from "lucide-react"
 import Navbar from "./Navbar"

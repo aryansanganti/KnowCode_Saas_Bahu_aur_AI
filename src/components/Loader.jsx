@@ -8,7 +8,7 @@ const Loader = () => {
       if (loader) {
         loader.style.top = '-100%';
       }
-    }, 4200);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);

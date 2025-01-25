@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import  { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Recycle, ChevronDown, ChevronUp } from "lucide-react"
 import Navbar from "./Navbar"

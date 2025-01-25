@@ -20,17 +20,17 @@
     position: absolute;
     opacity: 0;
     animation-name: load;
-    animation-duration: 1s;
-    animation-delay: 0.4s;
+    animation-duration: 0.8s;
+    animation-delay: 0.2s;
     animation-timing-function:  ease-in-out;
   }
   
   #loader h1:nth-child(2) {
-    animation-delay: 1.8s;
+    animation-delay: 1.2s;
   }
   
   #loader h1:nth-child(3) {
-    animation-delay: 3.2s;
+    animation-delay: 2.2s;
   }
   
   @keyframes load {
