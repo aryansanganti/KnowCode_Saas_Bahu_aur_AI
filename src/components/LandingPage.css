@@ -1,30 +1,32 @@
 .elem {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.5s ease-out;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .text-div {
-    height: 16vh;
-    position: relative;
-    z-index: 9;
-    overflow: hidden;
-  }
-  
-  .elem h1 {
-    font-family: Ultra;
-    font-size: 7.5vw; /* Adjust for responsive scaling */
-    font-weight: 10;
-    transition: all ease-out 0.5s;
-  }
-  
-  .elem:hover h1 {
-    transform: translateY(-100%);
-    color: #EDBFFF;
-  }
+.text-div {
+  height: 16vh;
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+}
+
+.elem h1 {
+  font-family: Ultra;
+  font-size: 7.5vw; /* Adjust for responsive scaling */
+  font-weight: 10;
+  transition: all ease-out 0.5s;
+}
+
+.elem:hover h1 {
+  transform: translateY(-100%);
+  color: #edbfff;
+}
+
+
   .NEW {
     background-color: #EFE3C2;
     height: 90vh;

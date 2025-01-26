@@ -37,7 +37,7 @@ const EcoDashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#EFE3C2] py-10 px-4">
+      <div className="min-h-screen mt-12 bg-[#EFE3C2] py-10 px-4">
         <div className="max-w-5xl mx-auto bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
           <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
             <h2 className="text-2xl font-bold">EcoWallet Dashboard</h2>

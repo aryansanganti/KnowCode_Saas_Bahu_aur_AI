@@ -153,12 +153,7 @@ const IssueResolver = () => {
   return (
     <>
       <Navbar />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className="min-h-screen mt-9 bg-[#EFE3C2] py-10 px-4">
-=======
       <div className="min-h-screen bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
->>>>>>> 9c4d5c9 (Good Night)
         <div className="flex gap-6 max-w-6xl mx-auto">
           {/* Main Issue Resolver Section */}
           <div className="w-3/4 bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
@@ -216,13 +211,6 @@ const IssueResolver = () => {
                 </div>
               )}
             </div>
-=======
-
-      <div className="min-h-screen bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
-          <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
-            <h2 className="text-2xl font-bold">Resolve Community Issues</h2>
->>>>>>> 22030ce (..)
           </div>
 
           {/* Live Data Section */}
