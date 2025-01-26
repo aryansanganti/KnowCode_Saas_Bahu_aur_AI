@@ -17,22 +17,22 @@ import myImage1 from '../assets/dash.jpg';
 import myImage2 from '../assets/dash.jpg';
 import myImage3 from '../assets/dash.jpg';
 import myImage4 from '../assets/dash.jpg';
-import myImage6 from '../assets/reduce.jpg';
-import myImage7 from '../assets/reuse.jpg';
+import myImage7 from '../assets/reduce.jpg';
+import myImage6 from '../assets/reuse.jpg';
 import myImage8 from '../assets/recycle.jpg';
 
 const LandingPage = () => {
   const page2Ref = useRef(null);
   const h1Ref = useRef(null);
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState(`url('${myImage}')`);
 
   const handleMouseEnter = (image) => {
-    setBackgroundImage(`url(${image})`);
+    setBackgroundImage(`url('${image}')`);
   };
 
   const handleMouseLeave = () => {
-    setBackgroundImage("");
-  };  
+    setBackgroundImage(`url('${myImage}')`);
+  };
   useGSAP(() => {
     const h1Element = h1Ref.current;
     const parentElement = page2Ref.current;
@@ -98,34 +98,34 @@ const LandingPage = () => {
 
       {/* Section 2: Random Image */}
       <section
-  className="h-screen w-screen flex justify-center items-center bg-gray-200 relative max-w-full max-h-screen overflow-hidden"
-  style={{
-    backgroundImage: backgroundImage,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    transition: "background-image 0.5s ease-in-out",
-  }}
->
-  <div className="absolute text-black text-8xl font-bold font-Ultra text-center space-y-4">
-    {[
-      { word: "REUSE", image: myImage6 },
-      { word: "REDUCE", image: myImage7 },
-      { word: "RECYCLE", image: myImage8 },
-    ].map(({ word, image }, index) => (
-      <div
-        key={index}
-        className="elem"
-        onMouseEnter={() => handleMouseEnter(image)}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="text-div">
-          <h1>{word}</h1>
-          <h1>{word}</h1>
-        </div>
+      className="h-screen w-screen flex justify-center items-center bg-brown relative max-w-full max-h-screen overflow-hidden"
+      style={{
+        backgroundImage: backgroundImage,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 0.5s ease-in-out",
+      }}
+    >
+      <div className="absolute text-black text-8xl font-bold font-Ultra text-center space-y-4">
+        {[
+          { word: "REUSE", image: myImage6 }, // Replace with the path to your images
+          { word: "REDUCE", image: myImage7 },
+          { word: "RECYCLE", image: myImage8 },
+        ].map(({ word, image }, index) => (
+          <div
+            key={index}
+            className="elem"
+            onMouseEnter={() => handleMouseEnter(image)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="text-div">
+              <h1>{word}</h1>
+              <h1>{word}</h1>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</section>
+    </section>
 
 
 
