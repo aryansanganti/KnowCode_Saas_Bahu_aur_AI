@@ -192,4 +192,3 @@ const EcoFriendlyCommunityForum = () => {
 }
 
 export default EcoFriendlyCommunityForum
-

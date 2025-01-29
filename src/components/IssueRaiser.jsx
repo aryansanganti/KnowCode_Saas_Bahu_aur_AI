@@ -112,7 +112,7 @@ Return the response in JSON format with keys: text, location, description`
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen mt-9 bg-gradient-to-b pt-2 from-[#EFE3C2] to-[#85A947] flex flex-col items-center justify-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto bg-[#85A947] rounded-xl shadow-lg overflow-hidden">
           <div className="bg-[#3E7B27] text-[#EFE3C2] p-6 flex items-center">
             <FaPlus className="mr-4 text-4xl" />
