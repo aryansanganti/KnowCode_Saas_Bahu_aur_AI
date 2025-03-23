@@ -26,8 +26,6 @@ Datathon Finallytics is a data-driven project aimed at extracting meaningful ins
    git clone https://github.com/your-repo/datathon-finalytics.git
    cd datathon-finalytics
    ```
-
-   ```
 2. Start the frontend:
    ```bash
    npm install 
